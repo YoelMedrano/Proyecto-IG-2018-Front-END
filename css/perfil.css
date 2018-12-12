@@ -1,0 +1,22 @@
+.form-group{
+    background: #f0f0f4;
+   position: fixed;top:150px;left: 20px;
+}
+
+
+.botonBuscar{
+    position: fixed;
+    position: fixed;top:220px;left: 20px;
+}
+.card-body{
+    background: #f0f0f4;
+   position: fixed; top:150px; right: 70px;
+   width: 20%;
+   height: 60%;
+}
+.friends{
+   background: #f0f0f4;
+   position: fixed; top:150px; left : 270px;
+   width: 50%;
+   height: 60%;
+}

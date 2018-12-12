@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Find Cloud</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+  <link rel="stylesheet" href="../css/home.css">
+</head>
+<body>
+  <!-- barra de navegacion  -->
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a href="#/home" class="navbar-brand" href="#PacketsMap">Packets Map</a>
+    </div>
+
+    <!--<form class="navbar-form navbar-left">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search" name="search">
+        <div class="input-group-btn">
+          <button class="btn btn-default" type="submit">
+            <i class="glyphicon glyphicon-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>-->
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#/registro"  class="glyphicon glyphicon-user"> SignUp</a></li>
+      <li><a href="#/login"   class="glyphicon glyphicon-log-in"> LogIn</a>  </li>
+    </ul>
+  </div>
+</nav>
+
+
+    <!-- fin  barra de navegacion  -->
+
+      <!-- inicio Modal sing Up-->
+            <!-- Modal -->
+        <div class="modal fade" id="SignUp" >
+            <div class="modal-dialog">
+                <div class="modal-content SignUp">
+                      <div class="modal-header">
+                             <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      </div>
+                      <div class="modal-body" >
+                                <div class="limiter">
+                                <div class="container-login100">
+
+                                  <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
+                                    <form class="login100-form validate-form" role="form" ng-submit="signup()">
+                                      <span class="login100-form-title p-b-33">
+                                      <div ng-show="error" class="alert alert-danger">{{error}}</div> 
+                                      </span>
+                                      <div class="wrap-input100 rs2 validate-input" data-validate = "Debe ingresar un Nombre ">
+                                        <input class="input100" type="text" id="firstName" name="firstName" placeholder="Nombre" ng-model="firstName" required>
+                                        <span class="focus-input100-1"></span>
+                                        <span class="focus-input100-2"></span>
+                                      </div>
+
+                                      <div class="wrap-input100 rs3 validate-input" data-validate = "Debe ingresar un Apellido">
+                                        <input class="input100" type="text" name="lastName" id="lastName" placeholder="Apellido" ng-model="lastName" required>
+                                        <span class="focus-input100-1"></span>
+                                        <span class="focus-input100-2"></span>
+                                      </div>
+
+
+                                      <div class="wrap-input100 validate-input" data-validate = "Debe ingresar un email valido: ex@abc.xyz">
+                                        <input class="input100" type="email" id="email" name="email" placeholder="Email" ng-model="email" required>
+                                        <span class="focus-input100-1"></span>
+                                        <span class="focus-input100-2"></span>
+                                      </div>
+
+                                      <div class="wrap-input100 validate-input" data-validate = "introduzca una fecha valida">
+                                        <input class="input100" type="date" name="dateOfBirth" placeholder="Nacimineto" id="dateOfBirth" ng-model="dateOfBirth" required>
+                                        <span class="focus-input100-1"></span>
+                                        <span class="focus-input100-2"></span>
+                                      </div>
+
+                                      <div class="wrap-input100 rs1 validate-input" data-validate="Debe ingresar su contraseña">
+                                        <input class="input100" type="password" name="password" placeholder="Contraseña" id="password" ng-model="password" pattern="{6,15}" title="Debe tener mas de 5 caracteres" required="required">
+                                        <span class="focus-input100-1"></span>
+                                        <span class="focus-input100-2"></span>
+                                      </div>
+                                      <div class="wrap-input100 rs1 validate-input" data-validate="Debe confirmar su contraseña">
+                                        <input class="input100" type="password" name="confirmationPassword" placeholder="Confirmar Contraseña" id="confirmationPassword" ng-model="confirmationPassword" required>
+                                        <span class="focus-input100-1"></span>
+                                        <span class="focus-input100-2"></span>
+                                      </div>
+
+                                      <div class="container-login100-form-btn m-t-20">
+                                        <button class="login100-form-btn" type="submit">
+                                          Registrarme
+                                        </button>
+                                        <button class="volver-btn2" onclick="location.href='https://proyectoig.herokuapp.com'">
+                                          Volver
+                                        </button>
+                                      </div>
+                                      
+
+                                      </div>
+                                    </form>
+                                  </div>
+                                </div>
+                              </div>
+                      </div>
+                      <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      </div>
+                </div>      
+
+            </div>
+        </div>
+
+      <!-- fin Modal sing Up-->
+
+   <!--inicio modal login -->
+        <div class="modal fade" id="LogIn">
+            <div class="modal-dialog">
+                <div class="modal-content SignUp">
+                      <div class="modal-header">
+                             <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4>LogIn</h4>
+                      </div>
+                      <div class="modal-body">
+                                <div class="limiter">
+                                <div class="container-login100">
+
+                                  <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
+                                    <form class="login100-form validate-form" ng-submit="login()" role="form"> <link rel="stylesheet" href="../css/home.css">
+                                      <span class="login100-form-title p-b-33">
+                                        <div ng-show="error" class="alert alert-danger">{{error}}</div>
+                                        
+                                      </span>
+
+                                      <div class="wrap-input100 validate-input">
+                                        <input class="input100" type="email" name="email" id ="email"placeholder="Email" ng-model="email" required="required">
+                                        <span class="focus-input100-1"></span>
+                                        <span class="focus-input100-2"></span>
+                                      </div>
+
+                                      <div class="wrap-input100 rs1 validate-input" data-validate="Debe ingresar su contraseña">
+                                        <input class="input100" type="password" name="password"  id="password" placeholder="Contraseña" ng-model="password" required="required">
+                                        <span class="focus-input100-1"></span>
+                                        <span class="focus-input100-2"></span>
+                                      </div>
+
+                                      <div class="container-login100-form-btn m-t-20">
+                                        <button class="login100-form-btn3" type="submit" id="enviar">
+                                          Ingresar
+                                        </button>
+                                      </div>
+
+                                      <div class="text-center p-t-45 p-b-4">
+                                        <span class="txt1">
+                                          Olvido
+                                        </span>
+
+                                        <a href="#" class="txt2 hov1">
+                                          Usuario / Contraseña?
+                                        </a>
+                                      </div>
+
+                                      <div class="text-center">
+                                        <span class="txt1">
+                                          ¿Tiene Cuenta?
+                                        </span>
+
+                                        <a href="#/registration" class="txt2 hov1">
+                                          Registrarse
+                                        </a>
+                                      </div>
+                                    </form>
+                                  </div>
+                                </div>
+                              </div>
+  
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      </div>
+                </div>      
+
+            </div>
+        </div>
+      <!-- fin Modal login-->
+
+
+</body>
+</html>
