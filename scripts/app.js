@@ -24,6 +24,11 @@ angular.module('angularRestfulAuth', [
             controller: 'LoginController',
             templateUrl: 'partials/login.html'
         })
+
+        .when('/solicitud', {
+            controller: 'LoginController',
+            templateUrl: 'partials/solicitud.html'
+        })
         
         .when('/home', {
             controller: 'HomeCtrl',
@@ -48,7 +53,7 @@ angular.module('angularRestfulAuth', [
  
         $rootScope.$on('$locationChangeStart', function (event, next, current) {
             // redirect to login page if not logged in
-            if ($location.path() !== '/login' && $location.path() !== '/registro' && !$rootScope.globals.currentUser ) {
+            if ($location.path() !== '/solicitud' && $location.path() !== '/login' && $location.path() !== '/registro' && !$rootScope.globals.currentUser ) {
                 window.location="#/home";
                 
             }
