@@ -41,8 +41,8 @@ angular.module('angularRestfulAuth')
                     $localStorage.token = res.token;
                     window.location = "#/login";  
                 }
-            }, function() {
-                $rootScope.error = 'Error al registar';
+            }, function(response,message) {
+                $rootScope.error = response.message;
             })
         };
 
