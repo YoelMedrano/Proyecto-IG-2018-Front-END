@@ -29,6 +29,12 @@ angular.module('angularRestfulAuth', [
             controller: 'LoginController',
             templateUrl: 'partials/solicitud.html'
         })
+
+        .when('/seguimiento', {
+            controller: 'LoginController',
+            templateUrl: 'partials/seguimiento.html'
+        })
+        
         
         .when('/home', {
             controller: 'HomeCtrl',
