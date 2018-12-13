@@ -41,16 +41,16 @@ angular.module('Authentication')
         };
  
         service.SetCredentials = function (correoElectronico, response,idCliente) {
-            var idCliente = response.idCliente;
+            var authdata = response.idCliente;
  
             $rootScope.globals = {
                 currentUser: {
                     correoElectronico: correoElectronico,
-                    idCliente: idCliente
+                    authdata: authdata
                 }
             };
  
-            $http.defaults.headers.common['Authorization'] = 'Basic ' + idCliente; // jshint ignore:line
+            $http.defaults.headers.common['Authorization'] = 'Basic ' + authdata; // jshint ignore:line
             $cookieStore.put('globals', $rootScope.globals);
         };
  
