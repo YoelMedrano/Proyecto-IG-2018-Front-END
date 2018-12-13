@@ -40,8 +40,8 @@ angular.module('Authentication')
 
         };
  
-        service.SetCredentials = function (correoElectronico, contrasena) {
-            var authdata ={ success: correoElectronico && contrasena };
+        service.SetCredentials = function (correoElectronico, contrasena,idCliente) {
+            var authdata ="123";
  
             $rootScope.globals = {
                 currentUser: {
@@ -53,6 +53,8 @@ angular.module('Authentication')
             $http.defaults.headers.common['Authorization'] = 'Basic ' + authdata;
             $cookieStore.put('globals', $rootScope.globals);
         };
+
+
  
         service.ClearCredentials = function () {
             $rootScope.globals = {};
