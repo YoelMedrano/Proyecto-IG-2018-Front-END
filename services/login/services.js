@@ -21,7 +21,7 @@ angular.module('Authentication')
               callback(response);
               
             }).then(function(data){
-                service.SetCredentials(data.idCliente);
+                SetCredentials(data.idCliente);
             });
             
          
