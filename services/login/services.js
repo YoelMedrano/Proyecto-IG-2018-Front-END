@@ -29,8 +29,8 @@ angular.module('Authentication')
                        callback(response);
                       
             },1000)
-            .error(function (response) {
-              response.message = "Correo Electronico o Contraseña invalida";
+            .error(function (response,message) {
+              response.error = response.message;
               callback(response);
               
             });
