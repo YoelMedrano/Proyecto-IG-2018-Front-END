@@ -11,7 +11,7 @@ angular.module('Authentication')
             AuthenticationService.Login($scope.email, $scope.password, function(response) {
                 if(response.success) {
 
-                    AuthenticationService.SetCredentials(response);
+                    AuthenticationService.SetCredentials(response.error);
                     $location.path('/');
 
                 } else {
@@ -26,4 +26,5 @@ angular.module('Authentication')
             AuthenticationService.ClearCredentials();
             $location.path('/home');
         };
+  
 }]);
