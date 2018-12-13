@@ -3,8 +3,8 @@
 angular.module('Authentication')
  
 .factory('AuthenticationService',
-    ['Base64', '$http', '$cookieStore', '$rootScope', '$timeout','$scope',
-    function (Base64, $http, $cookieStore, $rootScope, $timeout,$scope) {
+    ['Base64', '$http', '$cookieStore', '$rootScope', '$timeout',
+    function (Base64, $http, $cookieStore, $rootScope, $timeout) {
         var service = {};
 
         service.Login = function (correoElectronico, contrasena, callback) {
@@ -30,9 +30,7 @@ angular.module('Authentication')
             var authdata =correoElectronico;
  
             $rootScope.globals = {
-                currentUser: {
-                    idCliente: authdata
-                }
+                    idCliente: authdata 
             };
  
             $http.defaults.headers.common['Authorization'] = 'Basic ' + authdata;
