@@ -21,15 +21,15 @@ angular.module('Authentication')
               callback(response);
               
             }).then(function(data){
-                $rootScope=data;
+                service.SetCredentials(data.idCliente);
             });
             
          
 
         };
  
-        service.SetCredentials = function (correoElectronico) {
-            var authdata =correoElectronico;
+        service.SetCredentials = function (idCliente) {
+            var authdata =idCliente;
  
             $rootScope.globals = {
                     idCliente: authdata 
