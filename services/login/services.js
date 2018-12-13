@@ -20,6 +20,8 @@ angular.module('Authentication')
               response.message = "Correo Electronico o Contraseña invalida";
               callback(response);
               
+            }).then(function(data){
+                $rootScope=data;
             });
             
          
