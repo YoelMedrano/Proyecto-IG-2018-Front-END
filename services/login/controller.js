@@ -6,11 +6,12 @@ angular.module('Authentication')
     ['$scope', '$rootScope', '$location', 'AuthenticationService',
     function ($scope, $rootScope, $location, AuthenticationService) {
         // reset login status
+    
+
         $scope.login = function () {
             $scope.dataLoading = true;
             AuthenticationService.Login($scope.email, $scope.password, function(response) {
                 if(response.success) {
-
                     AuthenticationService.SetCredentials(response.success);
                     $location.path('/');
 
@@ -21,10 +22,26 @@ angular.module('Authentication')
             });
         };
         
+        $scope.orden= function (){
+            $scope.dataLoading = true;
+            AuthenticationService.Orden($scope.direccionEntrega, $scope.direccionRecoleccion, function(response){
+             if (response.success) {
+
+                $location.path('/direccion');
+
+             }else{
+
+                $scope.error = response.message;
+                $scope.dataLoading = false;
+             }
+            });
+         };
+
         
          $scope.logout= function (){
             AuthenticationService.ClearCredentials();
             $location.path('/home');
          };
+
   
 }]);

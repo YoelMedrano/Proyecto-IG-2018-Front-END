@@ -25,7 +25,8 @@ angular.module('Authentication')
          
 
         };
- 
+
+        
         service.SetCredentials = function (idCliente) {
             var authdata =idCliente;
  
@@ -39,13 +40,39 @@ angular.module('Authentication')
             $cookieStore.put('globals', $rootScope.globals);
         };
 
-
+        service.SetCredentialsO = function (idOrden) {
+            var authdata =idOrden;
  
+            $rootScope.globalsO = {
+                currentUser: {
+                    authdata: authdata 
+                }
+            };
+ 
+            $http.defaults.headers.common['Authorization'] = 'Basic ' + authdata;
+            $cookieStore.put('globalsO', $rootScope.globalsO);
+        };
+
+
         service.ClearCredentials = function () {
             $rootScope.globals = {};
             $cookieStore.remove('globals');
             $http.defaults.headers.common.Authorization = 'Basic ';
         };
+
+        service.Orden = function (direccionEntrega,direccionRecoleccion,callback) {
+            $http.post('https://proyectopaquetes.herokuapp.com/orden/registrar/' + $rootScope.globals.currentUser.authdata,
+                {direccionEntrega : direccionEntrega , direccionRecoleccion : direccionRecoleccion}).success(function(response,idOrden){
+
+                    var response = {success : response.idOrden};
+                    callback(response)
+                },1000)
+                .error(function(response){
+                    response.message="Error con las direcciones";
+                    callback(response);
+                });
+        };
+ 
  
         return service;
     }])
