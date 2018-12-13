@@ -30,7 +30,7 @@ angular.module('Authentication')
             var authdata =idCliente;
  
             $rootScope.globals = {
-                    idCliente: authdata 
+                    authdata: authdata 
             };
  
             $http.defaults.headers.common['Authorization'] = 'Basic ' + authdata;
