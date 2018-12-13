@@ -37,6 +37,21 @@ angular.module('Authentication')
             });
          };
 
+         $scope.paquete= function (){
+            $scope.dataLoading = true;
+            AuthenticationService.Orden($scope.nombreApellidoEntrega, $scope.pesoKgs, $scope.descripcionPaquete, function(response){
+             if (response.success) {
+                AuthenticationService.SetCredentialsP(response.success);
+                $location.path('/');
+
+             }else{
+
+                $scope.error = response.message;
+                $scope.dataLoading = false;
+             }
+            });
+         };
+
         
          $scope.logout= function (){
             AuthenticationService.ClearCredentials();

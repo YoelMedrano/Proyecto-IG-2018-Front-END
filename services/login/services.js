@@ -53,6 +53,20 @@ angular.module('Authentication')
             $cookieStore.put('globalsO', $rootScope.globalsO);
         };
 
+        service.SetCredentialsO = function (idPaquete) {
+            var authdata =idPaquete;
+ 
+            $rootScope.globalsP = {
+                currentUser: {
+                    authdata: authdata 
+                }
+            };
+ 
+            $http.defaults.headers.common['Authorization'] = 'Basic ' + authdata;
+            $cookieStore.put('globalsP', $rootScope.globalsP);
+        };
+
+
 
         service.ClearCredentials = function () {
             $rootScope.globals = {};
@@ -70,7 +84,7 @@ angular.module('Authentication')
         };
 
         service.Orden = function (direccionEntrega,direccionRecoleccion,callback) {
-            $http.post('https://proyectopaquetes.herokuapp.com/orden/registrar/{' + $rootScope.globals.currentUser.authdata +'}',
+            $http.post('https://proyectopaquetes.herokuapp.com/orden/registrar/' + $rootScope.globals.currentUser.authdata ,
                 {direccionEntrega : direccionEntrega , direccionRecoleccion : direccionRecoleccion}).success(function(response,idOrden){
 
                     var response = {success : response.idOrden};
@@ -83,7 +97,7 @@ angular.module('Authentication')
         };
 
         service.Paquete = function (nombreApellidoEntrega,pesoKgs,descripcionPaquete,callback) {
-            $http.post('https://proyectopaquetes.herokuapp.com/paquete/registrar/{' + $rootScope.globalsO.currentUser.authdata +'}',
+            $http.post('https://proyectopaquetes.herokuapp.com/paquete/registrar/' + $rootScope.globalsO.currentUser.authdata ,
                 {nombreApellidoEntrega : nombreApellidoEntrega , pesoKgs : pesoKgs , descripcionPaquete: descripcionPaquete}).success(function(response,idPaquete){
 
                     var response = {success : response.idPaquete};
