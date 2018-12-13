@@ -40,17 +40,17 @@ angular.module('Authentication')
 
         };
  
-        service.SetCredentials = function (correoElectronico,response,idcliente) {
-            
+        service.SetCredentials = function (correoElectronico, contrasena) {
+            var authdata = Base64.encode(correoElectronico + ':' + contrasena);
  
             $rootScope.globals = {
                 currentUser: {
                     correoElectronico: correoElectronico,
-                    idCliente: idcliente
+                    authdata: authdata
                 }
             };
  
-            $http.defaults.headers.common['Authorization'] = 'Basic ' + idCliente; // jshint ignore:line
+            $http.defaults.headers.common['Authorization'] = 'Basic ' + authdata; // jshint ignore:line
             $cookieStore.put('globals', $rootScope.globals);
         };
  
