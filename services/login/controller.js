@@ -13,7 +13,7 @@ angular.module('Authentication')
             AuthenticationService.Login($scope.email, $scope.password, function(response) {
                 if(response.success) {
                     AuthenticationService.SetCredentials($scope.email,$scope.password,function(response,idCliente){
-                        callback(response.idCliente);
+                        return(response,idCliente);
                     });
                     $location.path('/');
                 } else {
