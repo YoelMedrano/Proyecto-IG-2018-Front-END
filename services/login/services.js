@@ -26,7 +26,7 @@ angular.module('Authentication')
              $http.post( 'https://proyecto-paquetes-ings.herokuapp.com/cliente/login', {correoElectronico : correoElectronico , contrasena : contrasena})
               .success(function (response){
                        var response= { success: correoElectronico && contrasena };
-                       
+                       response.message=response.idCliente;
                        callback(response);
                       
             },1000)
@@ -41,12 +41,7 @@ angular.module('Authentication')
         };
  
         service.SetCredentials = function (correoElectronico, contrasena) {
-            $scope.idCliente = {};
-            $http.post( 'https://proyecto-paquetes-ings.herokuapp.com/cliente/login', {correoElectronico : correoElectronico , contrasena : contrasena})
-              .success(function (data){
-                $scope.idCliente=data.idCliente;
-              });
-            var authdata =$scope.idCliente;
+            var authdata =response.idCliente;
  
             $rootScope.globals = {
                 currentUser: {
