@@ -23,7 +23,7 @@ angular.module('Authentication')
             // Use this for real authentication
              //----------------------------------------------
             
-             $http.get( 'https://proyecto-paquetes-ings.herokuapp.com/cliente/login', {correoElectronico : correoElectronico , contrasena : contrasena})
+             $http.post( 'https://proyecto-paquetes-ings.herokuapp.com/cliente/login', {correoElectronico : correoElectronico , contrasena : contrasena})
               .success(function (response){
                        var response= { success: correoElectronico && contrasena };
                        callback(response);
