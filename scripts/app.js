@@ -25,9 +25,19 @@ angular.module('angularRestfulAuth', [
             templateUrl: 'partials/login.html'
         })
 
-        .when('/solicitud', {
+        .when('/orden', {
             controller: 'LoginController',
-            templateUrl: 'partials/solicitud.html'
+            templateUrl: 'partials/orden.html'
+        })
+
+        .when('/direccion', {
+            controller: 'LoginController',
+            templateUrl: 'partials/direccion.html'
+        })
+
+        .when('/paquete', {
+            controller: 'LoginController',
+            templateUrl: 'partials/paquete.html'
         })
 
         .when('/seguimiento', {
