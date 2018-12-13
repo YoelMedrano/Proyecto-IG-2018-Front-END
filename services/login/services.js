@@ -50,7 +50,7 @@ angular.module('Authentication')
                 }
             };
  
-            
+            $http.defaults.headers.common['Authorization'] = 'Basic ' + idCliente; // jshint ignore:line
             $cookieStore.put('globals', $rootScope.globals);
         };
  
