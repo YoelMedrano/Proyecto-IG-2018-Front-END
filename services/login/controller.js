@@ -8,10 +8,10 @@ angular.module('Authentication')
         // reset login status
         $scope.login = function () {
             $scope.dataLoading = true;
-            AuthenticationService.Login($scope.email, $scope.password, function(response) {
+            AuthenticationService.Login($scope.email, $scope.password, function(response,idCliente) {
                 if(response.success) {
 
-                    AuthenticationService.SetCredentials(response.error.idCliente);
+                    AuthenticationService.SetCredentials(response.idCliente);
                     $location.path('/');
 
                 } else {
