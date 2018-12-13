@@ -68,7 +68,7 @@ angular.module('Authentication')
                     callback(response)
                 },1000)
                 .error(function(response){
-                    response.message="Error con las direcciones";
+                    response.message="Ocurrio un error";
                     callback(response);
                 });
         };
