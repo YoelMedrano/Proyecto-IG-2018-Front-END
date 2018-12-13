@@ -31,7 +31,7 @@ angular.module('Authentication')
  
             $rootScope.globals = {
                 currentUser: {
-                    idCliente: authdata 
+                    authdata: authdata 
                 }
             };
  
