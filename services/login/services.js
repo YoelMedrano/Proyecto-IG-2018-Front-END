@@ -9,24 +9,10 @@ angular.module('Authentication')
 
         service.Login = function (correoElectronico, contrasena, callback) {
 
-            /* Dummy authentication for testing, uses $timeout to simulate api call
-             ----------------------------------------------*/
-           /* $timeout(function(){
-                var response = { success: username === 'test' && contrasena === 'test' };
-                if(!response.success) {
-                    response.message = 'Username or contrasena is incorrect';
-                }
-                callback(response);
-            }, 1000);
-*/
-
-            // Use this for real authentication
-             //----------------------------------------------
             
              $http.post( 'https://proyecto-paquetes-ings.herokuapp.com/cliente/login', {correoElectronico : correoElectronico , contrasena : contrasena})
-              .success(function (response,idCliente){
+              .success(function (response,data){
                        var response= { success: correoElectronico && contrasena };
-                       response.data=response.idCliente;
                        callback(response);
                       
             },1000)
@@ -40,7 +26,7 @@ angular.module('Authentication')
 
         };
  
-        service.SetCredentials = function (correoElectronico, contrasena,id) {
+        service.SetCredentials = function (correoElectronico, id) {
             var authdata =id;
  
             $rootScope.globals = {
