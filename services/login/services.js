@@ -11,8 +11,8 @@ angular.module('Authentication')
             
              $http.post( 'https://proyecto-paquetes-ings.herokuapp.com/cliente/login', {correoElectronico : correoElectronico , contrasena : contrasena})
               .success(function (response,data){
-                       var response= { success: correoElectronico && contrasena && idCliente };
-
+                       var response= { success: correoElectronico && contrasena };
+                        response.success=response.data;
                        callback(response);
                       
             },1000)
