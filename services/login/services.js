@@ -8,14 +8,13 @@ angular.module('Authentication')
         var service = {};
 
         service.Login = function (correoElectronico, contrasena, callback) {
-
             
              $http.post( 'https://proyecto-paquetes-ings.herokuapp.com/cliente/login', {correoElectronico : correoElectronico , contrasena : contrasena})
               .success(function (response){
                        var response= { success: correoElectronico && contrasena };
+                       
                        callback(response);
-                   
-
+                      
             },1000)
             .error(function (response) {
               response.message = "Correo Electronico o Contraseña invalida";
