@@ -11,8 +11,7 @@ angular.module('Authentication')
             $scope.dataLoading = true;
             AuthenticationService.Login($scope.email, $scope.password, function(response) {
                 if(response.success) {
-                    $scope.prueba=response.idCliente;
-                    if(response.success.data){
+                    if(success){
                     AuthenticationService.SetCredentials($scope.email);
                 }
                     $location.path('/');
