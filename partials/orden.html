@@ -1,0 +1,99 @@
+ <link rel="stylesheet" href="../css/home.css">
+   <title>Login</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<!-- barra de navegacion  -->
+	<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a href="#/home" class="navbar-brand" href="#PacketsMap">Packets Map</a>
+    </div>
+
+    <!--<form class="navbar-form navbar-left">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search" name="search">
+        <div class="input-group-btn">
+          <button class="btn btn-default" type="submit">
+            <i class="glyphicon glyphicon-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>-->
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#/registro"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="#/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+</nav>
+	<!-- fin barra de navegacion  -->	
+	<div class="limiter">
+		<div class="container-login100">
+
+			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
+				<center><img src="../images/logo.png"></center>
+				<form class="login100-form validate-form" ng-submit="login()" role="form"> <link rel="stylesheet" href="../css/home.css">
+					<span class="login100-form-title p-b-33">
+						<div ng-show="error" class="alert alert-danger">{{error}}</div>
+						
+					</span>
+
+					<div class="wrap-input100 validate-input">
+						<input class="input100" type="email" name="email" id ="email"placeholder="Email" ng-model="email" required="required">
+						<span class="focus-input100-1"></span>
+						<span class="focus-input100-2"></span>
+					</div>
+
+					<div class="wrap-input100 rs1 validate-input" data-validate="Debe ingresar su contraseña">
+						<input class="input100" type="password" name="password"  id="password" placeholder="Contraseña" ng-model="password" required="required">
+						<span class="focus-input100-1"></span>
+						<span class="focus-input100-2"></span>
+					</div>
+
+					<div class="container-login100-form-btn m-t-20">
+						<button class="login100-form-btn3"  type="submit" id="enviar">
+							Ingresar
+						</button>
+					</div>
+
+					<div class="text-center p-t-45 p-b-4">
+						<span class="txt1">
+							Olvido
+						</span>
+
+						<a href="#" class="txt2 hov1">
+							Usuario / Contraseña?
+						</a>
+					</div>
+
+					<div class="text-center">
+						<span class="txt1">
+							¿Tiene Cuenta?
+						</span>
+
+						<a href="#/registro" class="txt2 hov1">
+							Registrarse
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+
+<script type="text/javascript">
+	enviar=document.getElementById("enviar");
+enviar.onclick=validarDatos;
+
+function validarDatos () {
+    var elemento =document.getElementById("correo");
+    if (elemento.checkValidity() ==false && elemento.required){
+    //document.getElementById("mensajes").innerHTML=`<p>Debe ingresar un ${elemento.id} valido</p>`;
+    document.getElementById("mensajes").innerHTML="<p>Debe ingresar un "+elemento.id +" valido</p>";
+}
+}
+</script>
+	
