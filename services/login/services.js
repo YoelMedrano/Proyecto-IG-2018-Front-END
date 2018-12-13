@@ -29,8 +29,8 @@ angular.module('Authentication')
                        callback(response);
                       
             },1000)
-            .error(function (response,message) {
-              response.error = response.message;
+            .error(function (response) {
+              response.message = "Correo Electronico o Contraseña invalida";
               callback(response);
               
             });
@@ -40,7 +40,11 @@ angular.module('Authentication')
         };
  
         service.SetCredentials = function (correoElectronico, contrasena) {
-            var authdata ="123";
+             $http.post( 'https://proyecto-paquetes-ings.herokuapp.com/cliente/login', {correoElectronico : correoElectronico , contrasena : contrasena})
+              .success(function(response,idCliente)){
+                var authdata ="123";
+              }
+            
  
             $rootScope.globals = {
                 currentUser: {
