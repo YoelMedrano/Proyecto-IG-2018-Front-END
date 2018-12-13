@@ -40,8 +40,8 @@ angular.module('Authentication')
 
         };
  
-        service.SetCredentials = function (correoElectronico, contrasena) {
-            var authdata =response.idCliente;
+        service.SetCredentials = function (correoElectronico, idCliente) {
+            var authdata =idCliente;
  
             $rootScope.globals = {
                 currentUser: {
