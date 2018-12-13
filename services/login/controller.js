@@ -12,7 +12,7 @@ angular.module('Authentication')
                 if(response.success) {
 
                     AuthenticationService.SetCredentials($scope.email);
-                    $location.path('/');
+                    $location.path('/orden');
 
                 } else {
                     $scope.error = response.message;
