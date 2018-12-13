@@ -58,6 +58,15 @@ angular.module('Authentication')
             $rootScope.globals = {};
             $cookieStore.remove('globals');
             $http.defaults.headers.common.Authorization = 'Basic ';
+            $rootScope.globalsO = {};
+            $cookieStore.remove('globalsO');
+            $http.defaults.headers.common.Authorization = 'Basic ';
+            $rootScope.globalsD = {};
+            $cookieStore.remove('globalsD');
+            $http.defaults.headers.common.Authorization = 'Basic ';
+            $rootScope.globalsP = {};
+            $cookieStore.remove('globalsP');
+            $http.defaults.headers.common.Authorization = 'Basic ';
         };
 
         service.Orden = function (direccionEntrega,direccionRecoleccion,callback) {
@@ -65,6 +74,19 @@ angular.module('Authentication')
                 {direccionEntrega : direccionEntrega , direccionRecoleccion : direccionRecoleccion}).success(function(response,idOrden){
 
                     var response = {success : response.idOrden};
+                    callback(response)
+                },1000)
+                .error(function(response){
+                    response.message="Ocurrio un error";
+                    callback(response);
+                });
+        };
+
+        service.Paquete = function (nombreApellidoEntrega,pesoKgs,descripcionPaquete,callback) {
+            $http.post('https://proyectopaquetes.herokuapp.com/paquete/registrar/{' + $rootScope.globalsO.currentUser.authdata +'}',
+                {direccionEntrega : direccionEntrega , direccionRecoleccion : direccionRecoleccion}).success(function(response,idPaquete){
+
+                    var response = {success : response.idPaquete};
                     callback(response)
                 },1000)
                 .error(function(response){
