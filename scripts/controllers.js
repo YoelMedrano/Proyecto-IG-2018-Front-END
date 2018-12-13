@@ -41,8 +41,8 @@ angular.module('angularRestfulAuth')
                     $localStorage.token = res.token;
                     window.location = "#/login";  
                 }
-            }, function(response,errors) {
-                $rootScope.error = response.errors;
+            }, function(response,message) {
+                $rootScope.error = response.message;
             })
         };
 
