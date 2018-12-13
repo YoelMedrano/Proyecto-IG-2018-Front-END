@@ -46,7 +46,7 @@ angular.module('Authentication')
             $rootScope.globals = {
                 currentUser: {
                     correoElectronico: correoElectronico,
-                    authdata: authdata
+                    idCliente: authdata
                 }
             };
  
