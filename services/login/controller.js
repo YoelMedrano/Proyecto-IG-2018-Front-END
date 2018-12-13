@@ -26,7 +26,7 @@ angular.module('Authentication')
             $scope.dataLoading = true;
             AuthenticationService.Orden($scope.direccionEntrega, $scope.direccionRecoleccion, function(response){
              if (response.success) {
-                AuthenticationService.SetCredentials(response.success);
+                AuthenticationService.SetCredentialsO(response.success);
                 $location.path('/direccion');
 
              }else{
