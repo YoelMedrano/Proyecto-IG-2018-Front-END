@@ -3,17 +3,16 @@
 angular.module('Authentication')
  
 .factory('AuthenticationService',
-    ['Base64', '$http', '$cookieStore', '$rootScope', '$timeout',
-    function (Base64, $http, $cookieStore, $rootScope, $timeout) {
+    ['Base64', '$http', '$cookieStore', '$rootScope', '$timeout','$scope',
+    function (Base64, $http, $cookieStore, $rootScope, $timeout,$scope) {
         var service = {};
 
         service.Login = function (correoElectronico, contrasena, callback) {
 
-            
              $http.post( 'https://proyecto-paquetes-ings.herokuapp.com/cliente/login', {correoElectronico : correoElectronico , contrasena : contrasena})
-              .success(function (response){
+              .success(function (response,data){
                        var response= { success: correoElectronico && contrasena };
-                       
+
                        callback(response);
                       
             },1000)
@@ -28,7 +27,7 @@ angular.module('Authentication')
         };
  
         service.SetCredentials = function (correoElectronico) {
-            var authdata =contrasena;
+            var authdata =correoElectronico;
  
             $rootScope.globals = {
                     idCliente: authdata
