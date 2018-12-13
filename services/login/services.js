@@ -10,9 +10,9 @@ angular.module('Authentication')
         service.Login = function (correoElectronico, contrasena, callback) {
             
              $http.post( 'https://proyecto-paquetes-ings.herokuapp.com/cliente/login', {correoElectronico : correoElectronico , contrasena : contrasena})
-              .success(function (response,idCliente){
+              .success(function (response){
                        var response= { success: correoElectronico && contrasena };
-                       response.success=response.idCliente;
+                       response.success="123";
                        callback(response);
                       
             },1000)
