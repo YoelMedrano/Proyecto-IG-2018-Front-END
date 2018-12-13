@@ -30,8 +30,8 @@ angular.module('Authentication')
                        callback(response);
                       
             },1000)
-            .error(function (response,message) {
-              response.error=response.message;
+            .error(function (response) {
+              response.message = "Correo Electronico o Contraseña invalida";
               callback(response);
               
             });
@@ -41,7 +41,7 @@ angular.module('Authentication')
         };
  
         service.SetCredentials = function (correoElectronico, contrasena) {
-            var authdata =response.;
+            var authdata ="";
  
             $rootScope.globals = {
                 currentUser: {
