@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<style type="text/css">
+<head>
+  <title>Find Cloud</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style type="text/css">
       
       * {
         margin:0px;
@@ -59,13 +66,6 @@
       }
 
     </style>
-<head>
-  <title>Find Cloud</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
   <link rel="stylesheet" href="../css/home.css">
@@ -85,7 +85,7 @@
         <li><a href="">Cliente</a>
           <ul>
             <li><a href="">Actualizar informacion</a></li>
-            <li><a href="#/eliminarcliente">Eliminar cuenta</a></li>
+            <li><a href="">Eliminar cuenta</a></li>
           </ul>
         </li>
         <li><a href="">Paquete</a>
@@ -102,10 +102,33 @@
           </ul>
         </li>
       </ul>
-    
   </div>
 </nav>
   
+  <div class="limiter">
+    <div class="container-login100">
+
+      <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
+        <center><img src="../images/logo.png"></center>
+        <form class="login100-form validate-form" ng-submit="eliminarc()" role="form"> <link rel="stylesheet" href="../css/home.css">
+          <span class="login100-form-title p-b-33">
+            
+            <div ng-show="error" class="alert alert-danger">{{error}}</div>
+          </span>
+
+          <div class="container-login100-form-btn m-t-20">
+            <button class="login100-form-btn" type="submit" id="enviar">
+              Eliminar cuenta
+            </button>
+            <button class="volver-btn2" onclick="location.href='https://proyecto-ig-2018.herokuapp.com/#/'">
+              Volver
+            </button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
 
            
 </body>

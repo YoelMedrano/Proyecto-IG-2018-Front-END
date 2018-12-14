@@ -68,7 +68,21 @@ angular.module('Authentication')
             });
          };
 
-        
+        $scope.eliminarc= function (){
+            $scope.dataLoading = true;
+            AuthenticationService.Eliminarc(function(response){
+             if (response.success) {
+                AuthenticationService.ClearCredentials();
+                $location.path('/home');
+
+             }else{
+
+                $scope.error = response.message;
+                $scope.dataLoading = false;
+             }
+            });
+         };
+
          $scope.logout= function (){
             AuthenticationService.ClearCredentials();
             $location.path('/home');

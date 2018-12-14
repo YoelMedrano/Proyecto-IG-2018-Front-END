@@ -51,6 +51,11 @@ angular.module('angularRestfulAuth', [
             templateUrl: 'partials/home.html'
         })
 
+        .when('/eliminarcliente', {
+            controller: 'LoginController',
+            templateUrl: 'partials/eliminarc.html'
+        })
+
         .when('/', {
             controller: 'LoginController',
             templateUrl: 'partials/userperfil.html'
@@ -69,7 +74,7 @@ angular.module('angularRestfulAuth', [
  
         $rootScope.$on('$locationChangeStart', function (event, next, current) {
             // redirect to login page if not logged in
-            if ($location.path() !== '/paquete' && $location.path() !== '/direccion' && $location.path() !== '/login' && $location.path() !== '/registro' && $location.path() !== '/orden'  && !$rootScope.globals.currentUser ) {
+            if ($location.path() !== '/paquete' && $location.path() !== '/eliminarcliente' && $location.path() !== '/direccion' && $location.path() !== '/login' && $location.path() !== '/registro' && $location.path() !== '/orden'  && !$rootScope.globals.currentUser ) {
                 window.location="#/home";
                 
             }

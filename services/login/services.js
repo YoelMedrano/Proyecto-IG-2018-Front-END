@@ -26,6 +26,19 @@ angular.module('Authentication')
 
         };
 
+        service.Eliminarc = function (callback) {
+            $http.post('https://proyectopaquetes.herokuapp.com/cliente/eliminar/' + $rootScope.globalsO.currentUser.authdata ,
+                {}).success(function(response,message){
+
+                    var response = {success : response.message};
+                    callback(response)
+                },1000)
+                .error(function(response){
+                    response.message="Ocurrio un error";
+                    callback(response);
+                });
+        };
+
         
         service.SetCredentials = function (idCliente) {
             var authdata =idCliente;
@@ -98,9 +111,9 @@ angular.module('Authentication')
 
         service.Orden = function (direccionEntrega,direccionRecoleccion,callback) {
             $http.post('https://proyectopaquetes.herokuapp.com/orden/registrar/' + $rootScope.globals.currentUser.authdata ,
-                {direccionEntrega : direccionEntrega , direccionRecoleccion : direccionRecoleccion}).success(function(response,idOrden){
+                {direccionEntrega : direccionEntrega , direccionRecoleccion : direccionRecoleccion}).success(function(response,message){
 
-                    var response = {success : response.idOrden};
+                    var response = {success : response.message};
                     callback(response)
                 },1000)
                 .error(function(response){
@@ -111,9 +124,9 @@ angular.module('Authentication')
 
         service.Paquete = function (nombreApellidoEntrega,pesoKgs,descripcionPaquete,callback) {
             $http.post('https://proyectopaquetes.herokuapp.com/paquete/registrar/' + $rootScope.globalsO.currentUser.authdata ,
-                {nombreApellidoEntrega : nombreApellidoEntrega , pesoKgs : pesoKgs , descripcionPaquete: descripcionPaquete}).success(function(response,idPaquete){
+                {nombreApellidoEntrega : nombreApellidoEntrega , pesoKgs : pesoKgs , descripcionPaquete: descripcionPaquete}).success(function(response,message){
 
-                    var response = {success : response.idPaquete};
+                    var response = {success : response.message};
                     callback(response)
                 },1000)
                 .error(function(response){
@@ -126,9 +139,9 @@ angular.module('Authentication')
             $http.post('https://proyectopaquetes.herokuapp.com/direccion/registrar/' + $rootScope.globals.currentUser.authdata +
                 '/'+$rootScope.globalsO.currentUser.authdata ,
                 {direccion1 : direccion1 , direccion2 : direccion2 , codigoPostal : codigoPostal, ciudad : ciudad, pais : pais,
-                    tipoDeDireccion : tipoDeDireccion, latitud : latitud, longitud : longitud}).success(function(response,idDireccion){
+                    tipoDeDireccion : tipoDeDireccion, latitud : latitud, longitud : longitud}).success(function(response,message){
 
-                    var response = {success : response.idDireccion};
+                    var response = {success : response.message};
                     callback(response)
                 },1000)
                 .error(function(response){
