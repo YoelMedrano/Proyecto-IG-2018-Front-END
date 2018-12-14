@@ -110,14 +110,9 @@
 
       <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
         <center><img src="../images/logo.png"></center>
-        <form class="login100-form validate-form" ng-submit="eliminarc()" role="form"> <link rel="stylesheet" href="../css/home.css">
-          <span class="login100-form-title p-b-33">
-            
-            <div ng-show="error" class="alert alert-danger">{{error}}</div>
-          </span>
 
           <div class="container-login100-form-btn m-t-20">
-            <button class="login100-form-btn" type="submit" id="enviar">
+            <button class="login100-form-btn" ng-click="eliminarc" id="eliminarc">
               Eliminar cuenta
             </button>
             <button class="volver-btn2" onclick="location.href='https://proyecto-ig-2018.herokuapp.com/#/'">
@@ -125,7 +120,7 @@
             </button>
           </div>
 
-        </form>
+
       </div>
     </div>
   </div>
