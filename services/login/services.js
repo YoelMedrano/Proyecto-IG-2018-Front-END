@@ -124,8 +124,7 @@ angular.module('Authentication')
 
         service.Paquete = function (nombreApellidoEntrega,pesoKgs,descripcionPaquete,callback) {
             $http.post('https://proyectopaquetes.herokuapp.com/paquete/registrar/' + $rootScope.globalsO.currentUser.authdata ,
-                {nombreApellidoEntrega : nombreApellidoEntrega , pesoKgs : pesoKgs , descripcionPaquete: descripcionPaquete}).success(function(response,message){
-
+                {nombreApellidoEntrega : nombreApellidoEntrega , pesoKgs : pesoKgs , descripcionPaquete : descripcionPaquete}).success(function(response,message){
                     var response = {success : response.message};
                     callback(response)
                 },1000)
