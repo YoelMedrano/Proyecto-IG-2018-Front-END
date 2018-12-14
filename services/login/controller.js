@@ -37,9 +37,25 @@ angular.module('Authentication')
             });
          };
 
+         $scope.direccion= function (){
+            $scope.dataLoading = true;
+            AuthenticationService.Direccion($scope.direccion1,$scope.direccion2,$scope.codigoPostal,$scope.ciudad,
+                $scope.pais,$scope.tipoDeDireccion,$scope.latitud,$scope.longitud, function(response){
+             if (response.success) {
+                AuthenticationService.SetCredentialsD(response.success);
+                $location.path('/');
+
+             }else{
+
+                $scope.error = response.message;
+                $scope.dataLoading = false;
+             }
+            });
+         };
+
          $scope.paquete= function (){
             $scope.dataLoading = true;
-            AuthenticationService.Orden($scope.nombreApellidoEntrega, $scope.pesoKgs, $scope.descripcionPaquete, function(response){
+            AuthenticationService.Paquete($scope.nombreApellidoEntrega, $scope.pesoKgs, $scope.descripcionPaquete, function(response){
              if (response.success) {
                 AuthenticationService.SetCredentialsP(response.success);
                 $location.path('/');

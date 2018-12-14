@@ -53,7 +53,7 @@ angular.module('Authentication')
             $cookieStore.put('globalsO', $rootScope.globalsO);
         };
 
-        service.SetCredentialsO = function (idPaquete) {
+        service.SetCredentialsP = function (idPaquete) {
             var authdata =idPaquete;
  
             $rootScope.globalsP = {
@@ -64,6 +64,19 @@ angular.module('Authentication')
  
             $http.defaults.headers.common['Authorization'] = 'Basic ' + authdata;
             $cookieStore.put('globalsP', $rootScope.globalsP);
+        };
+
+        service.SetCredentialsD = function (idDireccion) {
+            var authdata =idDireccion;
+ 
+            $rootScope.globalsP = {
+                currentUser: {
+                    authdata: authdata 
+                }
+            };
+ 
+            $http.defaults.headers.common['Authorization'] = 'Basic ' + authdata;
+            $cookieStore.put('globalsD', $rootScope.globalsD);
         };
 
 
@@ -101,6 +114,21 @@ angular.module('Authentication')
                 {nombreApellidoEntrega : nombreApellidoEntrega , pesoKgs : pesoKgs , descripcionPaquete: descripcionPaquete}).success(function(response,idPaquete){
 
                     var response = {success : response.idPaquete};
+                    callback(response)
+                },1000)
+                .error(function(response){
+                    response.message="Ocurrio un error";
+                    callback(response);
+                });
+        };
+
+        service.Direccion = function (direccion1,direccion2,codigoPostal,ciudad,pais,tipoDeDireccion,latitud,longitud,callback) {
+            $http.post('https://proyectopaquetes.herokuapp.com/paquete/registrar/' + $rootScope.globals.currentUser.authdata +
+                '/'+$rootScope.globalsO.currentUser.authdata ,
+                {direccion1 : direccion1 , direccion2 : direccion2 , codigoPostal : codigoPostal, ciudad : ciudad, pais : pais,
+                    tipoDeDireccion : tipoDeDireccion, latitud : latitud, longitud : longitud}).success(function(response,idDireccion){
+
+                    var response = {success : response.idDireccion};
                     callback(response)
                 },1000)
                 .error(function(response){
