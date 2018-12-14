@@ -39,8 +39,8 @@ angular.module('Authentication')
 
          $scope.direccion= function (){
             $scope.dataLoading = true;
-            AuthenticationService.Direccion($scope.direccion1,$scope.direccion2,$scope.codigoPostal,$scope.ciudad,
-                $scope.pais,$scope.tipoDeDireccion,$scope.latitud,$scope.longitud, function(response){
+            AuthenticationService.Direccion($scope.direccion1, $scope.direccion2, $scope.codigoPostal, $scope.ciudad,
+                $scope.pais, $scope.tipoDeDireccion, $scope.latitud, $scope.longitud, function(response){
              if (response.success) {
                 AuthenticationService.SetCredentialsD(response.success);
                 $location.path('/');
