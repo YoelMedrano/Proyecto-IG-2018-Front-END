@@ -105,7 +105,7 @@
 				<center><img src="../images/logo.png"></center>
 				<form class="login100-form validate-form" ng-submit="paquete()" role="form"> <link rel="stylesheet" href="../css/home.css">
 					<span class="login100-form-title p-b-33">
-						
+						<div ng-show="error" class="alert alert-danger">{{error}}</div>
 						
 					</span>
 
@@ -128,7 +128,7 @@
 					</div>
 
 					<div class="container-login100-form-btn m-t-20">
-						<button class="login100-form-btn" type="submit">
+						<button class="login100-form-btn" type="submit" id="enviar">
 							Continuar
 						</button>
 						<button class="volver-btn2" onclick="location.href='https://proyecto-ig-2018.herokuapp.com/#/direccion'">
