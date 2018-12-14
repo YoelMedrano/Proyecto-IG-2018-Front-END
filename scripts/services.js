@@ -2,7 +2,7 @@
 
 angular.module('angularRestfulAuth')
     .factory('Main', ['$http', '$localStorage', function($http, $localStorage){
-        var baseUrl = "https://proyecto-paquetes-ings.herokuapp.com";
+        var baseUrl = "https://proyectopaquetes.herokuapp.com/cliente/registrar";
         function changeUser(user) {
             angular.extend(currentUser, user);
         }
