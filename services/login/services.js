@@ -27,8 +27,10 @@ angular.module('Authentication')
         };
 
         service.Eliminarc = function (callback) {
-            $http.post('https://proyectopaquetes.herokuapp.com/cliente/eliminar/' + $rootScope.globals.currentUser.authdata
-            ).success(function(response,message){
+            $http({
+            method: 'DELETE',
+            url: 'https://proyectopaquetes.herokuapp.com/cliente/eliminar/' + $rootScope.globals.currentUser.authdata
+            }).success(function(response,message){
                     var response = {success : response.message};
                     callback(response)
                 },1000)
