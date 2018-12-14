@@ -88,10 +88,6 @@ angular.module('Authentication')
             $location.path('/home');
          };
 
-         $scope.latitud= function (latitud,longitud){
-            AuthenticationService.SetCredentialsLat(latitud,longitud);
-            
-         };
 
 
   
