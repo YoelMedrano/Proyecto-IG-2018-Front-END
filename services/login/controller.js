@@ -43,7 +43,7 @@ angular.module('Authentication')
                 $scope.pais, $scope.tipoDeDireccion, $scope.latitud, $scope.longitud, function(response){
              if (response.success) {
                 AuthenticationService.SetCredentialsD(response.success);
-                $location.path('/');
+                $location.path('/paquete');
 
              }else{
 
