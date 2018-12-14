@@ -21,7 +21,7 @@
           zoom: 3
         });
 
-        $.get('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.geojson', function(data) {
+        $.get('https://proyectopaquetes.herokuapp.com/direccion/buscar/'+ $rootScope.globals.currentUser.authdata, function(data) {
           L.geoJSON(data).addTo(map);
         });
       };
