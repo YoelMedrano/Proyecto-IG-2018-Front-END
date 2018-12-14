@@ -93,22 +93,6 @@ angular.module('Authentication')
             $cookieStore.put('globalsD', $rootScope.globalsD);
         };
 
-        service.SetCredentialsLat = function (latitud,longitud) {
-            var authdata =latitud;
-            var authdata1 = longitud
- 
-            $rootScope.globalsLat = {
-                currentUser: {
-                    authdata: authdata
-                    authdata1: authdata1 
-                }
-            };
- 
-            $http.defaults.headers.common['Authorization'] = 'Basic ' + authdata;
-            $cookieStore.put('globalsLat', $rootScope.globalsLat);
-        };
-
-
         service.ClearCredentials = function () {
             $rootScope.globals = {};
             $cookieStore.remove('globals');
@@ -164,8 +148,8 @@ angular.module('Authentication')
                 });
         };
  
+ 
         return service;
-        
     }])
  
 .factory('Base64', function () {
