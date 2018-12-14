@@ -112,6 +112,11 @@
         <center><img src="../images/logo.png"></center>
 
           <div class="container-login100-form-btn m-t-20">
+            <span class="login100-form-title p-b-33">
+            
+            <div ng-show="error" class="alert alert-danger">{{error}}</div>
+          </span>
+
             <button ng-click="eliminarc()" class="login100-form-btn" id="enviar">
               Eliminar cuenta
             </button>
