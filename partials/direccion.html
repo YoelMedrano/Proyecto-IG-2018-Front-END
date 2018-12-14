@@ -13,7 +13,7 @@
         L.mapquest.key = 'Ohu0mCESWDbUOTbp6GSviBsXSlOwW1sL';
 
         // Geocode three locations, then call the createMap callback
-        L.mapquest.geocoding().geocode([], createMap);
+        L.mapquest.geocoding().geocode(['Portland, OR', 'Flagstaff, AZ', 'Denver, CO'], createMap);
 
         function createMap(error, response) {
           // Initialize the Map
