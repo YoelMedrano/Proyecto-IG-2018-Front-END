@@ -7,6 +7,25 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+      window.onload = function() {
+        L.mapquest.key = 'Ohu0mCESWDbUOTbp6GSviBsXSlOwW1sL';
+
+        var map = L.mapquest.map('map', {
+          center: [39.7392, -104.9903],
+          layers: L.mapquest.tileLayer('map'),
+          zoom: 3
+        });
+
+        $.get('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.geojson', function(data) {
+          L.geoJSON(data).addTo(map);
+        });
+      };
+    </script>
   <style type="text/css">
       
       * {
@@ -104,7 +123,16 @@
       </ul>
   </div>
 </nav>
-  
+    <div class="limiter">
+    <div class="container-login100">
+
+      <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
+        <center><img src="../images/logo.png"></center>
+         <div id="map" style="width: 50%; height: 250px;"></div> 
+      </div>
+    </div>
+    </div>  
+        
 
            
 </body>
