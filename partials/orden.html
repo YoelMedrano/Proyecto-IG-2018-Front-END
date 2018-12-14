@@ -27,9 +27,7 @@
         map.on('click', function(e) {
           popup.setLatLng(e.latlng).openOn(this);
           L.mapquest.geocoding().reverse(e.latlng, generatePopupContent);
-          $.getscript("services/login/controller.js", function(){
-           latitud(L.mapquest.lat,L.mapquest.lng);
-        });
+          
 
         });
 
