@@ -97,8 +97,8 @@ angular.module('Authentication')
         };
 
         service.Orden = function (direccionEntrega,direccionRecoleccion,callback) {
-            $http.post('https://proyectopaquetes.herokuapp.com/orden/registrar'  ,
-                {id : $rootScope.globals.currentUser.authdata , direccionEntrega : direccionEntrega , direccionRecoleccion : direccionRecoleccion}).success(function(response,idOrden){
+            $http.post('https://proyectopaquetes.herokuapp.com/orden/registrar/' + $rootScope.globals.currentUser.authdata ,
+                {direccionEntrega : direccionEntrega , direccionRecoleccion : direccionRecoleccion}).success(function(response,idOrden){
 
                     var response = {success : response.idOrden};
                     callback(response)
