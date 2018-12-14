@@ -123,7 +123,7 @@ angular.module('Authentication')
         };
 
         service.Direccion = function (direccion1,direccion2,codigoPostal,ciudad,pais,tipoDeDireccion,latitud,longitud,callback) {
-            $http.post('https://proyectopaquetes.herokuapp.com/paquete/registrar/' + $rootScope.globals.currentUser.authdata +
+            $http.post('https://proyectopaquetes.herokuapp.com/direccion/registrar/' + $rootScope.globals.currentUser.authdata +
                 '/'+$rootScope.globalsO.currentUser.authdata ,
                 {direccion1 : direccion1 , direccion2 : direccion2 , codigoPostal : codigoPostal, ciudad : ciudad, pais : pais,
                     tipoDeDireccion : tipoDeDireccion, latitud : latitud, longitud : longitud}).success(function(response,idDireccion){
