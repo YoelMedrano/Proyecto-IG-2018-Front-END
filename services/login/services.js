@@ -150,11 +150,9 @@ angular.module('Authentication')
                     callback(response);
                 });
         };
- 
- 
-        return service;
-    }])
- 
+        return service;  
+
+     }])
 .factory('Base64', function () {
     /* jshint ignore:start */
  
